@@ -11,7 +11,12 @@ public class AAAB_SinglyLinkedList {
         head = insertAtLast(head, 100);
         head = insertAtLast(head, 110);
         head = insertAtLast(head, 120);
-        System.out.println("\nTotal Elements : " + countElements(head));
+        System.out.println("Total Elements : " + countElements(head));
+        printList(head);
+        head = insertAtPosition(head, 15,-1);
+        head = insertAtPosition(head,15,10);
+        head = insertAtPosition(head, 0,5);
+        System.out.println("Total Elements : " + countElements(head));
         printList(head);
     }
 
@@ -22,6 +27,7 @@ public class AAAB_SinglyLinkedList {
             System.out.printf("%d ", temp.data);
             temp = temp.next;
         }
+        System.out.println();//just for proper spacing on console// other than that no use of it
     }
 
     //count the elements in the list
@@ -53,6 +59,30 @@ public class AAAB_SinglyLinkedList {
         return head;
     }
 
+    public static Node insertAtPosition(Node head, int data, int position) {
+        Node newNode = new Node(data);
+        if (position < 1) {
+            System.out.println("Negative Position not allowed");
+            return head;
+        } else if (position == 1) {
+            newNode.next = head;
+            return newNode;
+        } else {
+            int counter = 1;
+            Node temp = head;
+            while (counter < position - 1 && null != temp) {
+                temp = temp.next;
+                counter++;
+            }
+            if (temp == null) {
+                System.out.println("Position out of range");
+            } else {
+                newNode.next = temp.next;
+                temp.next = newNode;
+            }
+            return head;
+        }
+    }
 
 }
 
