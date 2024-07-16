@@ -22,6 +22,11 @@ public class AAAB_SinglyLinkedList {
         head = deleteLastNode(head);
         System.out.println("Total Elements : " + countElements(head));
         printList(head);
+        head = deleteNodeAtGivenPosition(head, -35);
+        head = deleteNodeAtGivenPosition(head, 7);
+        head = deleteNodeAtGivenPosition(head, 4);
+        System.out.println("Total Elements : " + countElements(head));
+        printList(head);
     }
 
     //to print all elements in list
@@ -91,8 +96,7 @@ public class AAAB_SinglyLinkedList {
     public static Node deleteFirstNode(Node head) {
         if (head == null || head.next == null)
             return null;
-        head = head.next;
-        return head;
+        return head.next;
     }
 
     public static Node deleteLastNode(Node head) {
@@ -103,6 +107,28 @@ public class AAAB_SinglyLinkedList {
             temp = temp.next;
         }
         temp.next = null;
+        return head;
+    }
+
+    public static Node deleteNodeAtGivenPosition(Node head, int position) {
+        if (position < 1) {
+            System.out.println("Negative Position not allowed");
+            return head;
+        }
+        if (position == 1) {
+            return head.next;
+        }
+        Node temp = head;
+        int counter = 1;
+        while (counter < position - 1 && temp != null) {
+            temp = temp.next;
+            counter++;
+        }
+        if (temp == null || temp.next == null) {
+            System.out.println("Position out of range");
+            return head;
+        }
+        temp.next = temp.next.next;
         return head;
     }
 
