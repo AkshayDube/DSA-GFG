@@ -13,9 +13,13 @@ public class AAAB_SinglyLinkedList {
         head = insertAtLast(head, 120);
         System.out.println("Total Elements : " + countElements(head));
         printList(head);
-        head = insertAtPosition(head, 15,-1);
-        head = insertAtPosition(head,15,10);
-        head = insertAtPosition(head, 0,5);
+        head = insertAtPosition(head, 15, -1);
+        head = insertAtPosition(head, 15, 10);
+        head = insertAtPosition(head, 0, 5);
+        System.out.println("Total Elements : " + countElements(head));
+        printList(head);
+        head = deleteFirstNode(head);
+        head = deleteLastNode(head);
         System.out.println("Total Elements : " + countElements(head));
         printList(head);
     }
@@ -82,6 +86,24 @@ public class AAAB_SinglyLinkedList {
             }
             return head;
         }
+    }
+
+    public static Node deleteFirstNode(Node head) {
+        if (head == null || head.next == null)
+            return null;
+        head = head.next;
+        return head;
+    }
+
+    public static Node deleteLastNode(Node head) {
+        if (head == null || head.next == null)
+            return null;
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
     }
 
 }
