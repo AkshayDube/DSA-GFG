@@ -9,11 +9,11 @@ public class AAAC_DoublyLinkedList {
         head = insertAtLast(head, 15);
         System.out.println("Total Elements : " + countElements(head));
         printList(head);
-        head = insertAtPosition(head,25,-1);
-        head = insertAtPosition(head,25,6);
-        head = insertAtPosition(head,100,1);//insert at beginning
-        head = insertAtPosition(head,110,6);//insert at last
-        head = insertAtPosition(head,120,4);
+        head = insertAtPosition(head, 25, -1);
+        head = insertAtPosition(head, 25, 6);
+        head = insertAtPosition(head, 100, 1);//insert at beginning
+        head = insertAtPosition(head, 110, 6);//insert at last
+        head = insertAtPosition(head, 120, 4);
         System.out.println("Total Elements : " + countElements(head));
         printList(head);
     }
@@ -94,7 +94,6 @@ public class AAAC_DoublyLinkedList {
         temp.next.prev = newNode;
         temp.next = newNode;
         return head;
-
     }
 }
 
